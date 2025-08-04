@@ -4,6 +4,12 @@
 
 
 
+# Comandos Expo
+
+- npm start (roda o projeto no expo)
+- npx expo start --tunnel 
+
+
 # Comandos Git
 
 - git config --global user.name "Renan Cavichi"
