@@ -1,60 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.box1}>
-        <View style={styles.box3}> </View>
-        <View style={styles.box3}> </View>
+      <View style={styles.header}>
+        <Text>Logo</Text>
+        <View style={styles.menu}></View>
       </View>
-      <Text style={styles.tituloPrincipal}>Título Principal</Text>
-      <Text style={styles.subTitulo}>Subtítulo!</Text>
-      <Text>Este é um paragrafo</Text>
-      <Text style={styles.saibaMais}>Saiba mais</Text>
-      <Text style={styles.tituloPrincipal}>Título Principal 2</Text>
-      <View style={styles.box2}> </View>
-      <StatusBar style="auto" />
+      <View style={styles.content}>
+        <Text>Box 2</Text>
+      </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 2,
+    backgroundColor: "#5bf13dff",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  header: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tituloPrincipal: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginVertical: 20
-  },
-   subTitulo: {
-    fontSize: '18px',
-    fontWeight: 'bold',
-    marginVertical: 20
-  },
-  saibaMais: {
-    fontSize: '14px',
-    color: "#464646"
-  },
-  box1: {
-    display: "flex",
     width: "100%",
-    height: 80,
-    backgroundColor: "#456478",
-    justifyContent: "space-between"
+    backgroundColor: "#329bf1ff",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
+    paddingHorizontal: 20
   },
-  box2: {
+  content: {
+    flex: 7,
     width: "100%",
-    height: 80,
-    backgroundColor: "#0bc41aff"
+    backgroundColor: "#f19f32ff"
   },
-  box3: {
-    width: 50,
-    height: 50,
-    backgroundColor: "#b9680cff"
+  menu: {
+    width: 40,
+    height: 40,
+    backgroundColor: "#050505ff"
   }
-});
+}) 
