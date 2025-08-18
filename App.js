@@ -1,15 +1,15 @@
 import { View, Text, StyleSheet } from 'react-native'
+import Header from './src/components/Header'
+import Footer from './src/components/Footer'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Logo</Text>
-        <View style={styles.menu}></View>
-      </View>
+      <Header />
       <View style={styles.content}>
-        <Text>Box 2</Text>
+        <Text>Content</Text>
       </View>
+      <Footer />
     </View>
   )
 }
@@ -21,23 +21,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  header: {
-    flex: 1,
-    width: "100%",
-    backgroundColor: "#329bf1ff",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-    paddingHorizontal: 20
-  },
   content: {
     flex: 7,
     width: "100%",
     backgroundColor: "#f19f32ff"
-  },
-  menu: {
-    width: 40,
-    height: 40,
-    backgroundColor: "#050505ff"
   }
 }) 
