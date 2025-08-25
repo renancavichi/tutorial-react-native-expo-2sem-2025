@@ -1,13 +1,18 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native'
+import {Image} from 'expo-image'
 
-function Card() {
+function Card({title, desc, img}) {
+
   return (
     <View style={styles.card}>
-        <View style={styles.image}></View>
-        <View style={styles.info}>
-            <Text style={styles.title}>Lord of The Rings</Text>
-            <Text>Uma série de aventura sobre pequenos aventureiros que mudaram a história da Terra Média</Text>
-        </View>
+      <Image 
+        style={styles.image}
+        source={img}
+      />
+      <View style={styles.info}>
+        <Text style={styles.h1}>{title}</Text>
+        <Text>{desc}</Text>
+      </View>
     </View>
   )
 }
@@ -28,10 +33,10 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
-  title: {
+  h1: {
     fontSize: 20,
     fontWeight: 'bold'
   }
-}) 
+})
 
 export default Card
