@@ -9,6 +9,7 @@
 - Como estilizar um componente
 - O estilo no React Native é igual do CSS da Web
 - O que são propriedades dos componentes
+- Navegação com Expo Router
 
 # Comandos Úteis
 

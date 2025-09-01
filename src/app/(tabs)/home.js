@@ -1,12 +1,17 @@
-import { View, StyleSheet } from 'react-native'
-import Header from './src/components/Header'
-import Footer from './src/components/Footer'
-import Card from './src/components/Card'
+import { View, Text, StyleSheet } from 'react-native'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import Card from '../../components/Card'
+import { Link } from 'expo-router'
 
-export default function App() {
+export default function Home() {
   return (
     <View style={styles.container}>
       <Header />
+      <View>
+        <Link href="contact"><Text>Contato</Text></Link>
+        <Link href="about"><Text>Sobre</Text></Link>
+      </View>
       <View style={styles.content}>
         <Card 
           title="House of Dragons"
@@ -32,7 +37,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 2,
-    backgroundColor: "#5bf13dff",
+    backgroundColor: "#ffffffff",
     justifyContent: "center",
     alignItems: "center"
   },
