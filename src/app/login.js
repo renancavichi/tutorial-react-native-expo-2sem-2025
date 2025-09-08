@@ -10,7 +10,7 @@ export default function Login() {
             <Text>Inicializador</Text>
             <Button 
                 title='Cadastro'
-                onPress={() => router.navigate('/signup')}
+                onPress={() => router.push('/signup')}
             />
             <Button 
                 title='Home'
