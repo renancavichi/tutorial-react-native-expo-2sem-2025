@@ -73,7 +73,6 @@ export default function Signup() {
                     onPress={handleSignup}
                 />
             </View>
-          
         </View>
     )
 }
