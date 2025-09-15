@@ -6,7 +6,6 @@ import CardUser from '../../components/CardUser'
 export default function Contact() {
 
     const router = useRouter()
-
     const [users, setUsers] = useState([])
     
     useEffect(() => {
@@ -21,11 +20,8 @@ export default function Contact() {
                 console.log("Erro ao carregar lista")
             }
         }
-
         listUsers()
     } , [])
-
-
 
     return (
         <View style={styles.container}>
@@ -33,9 +29,12 @@ export default function Contact() {
             {users.map((user) => (
                 <CardUser 
                     key={user.id}
+                    id={user.id}
                     name={user.name}
                     email={user.email}
                     avatar={user.avatar}
+                    users={users}
+                    setUsers={setUsers}
                 />
             ))}
         </View>
