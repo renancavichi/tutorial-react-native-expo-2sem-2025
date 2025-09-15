@@ -1,8 +1,12 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import {Image} from 'expo-image'
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FontAwesome from '@expo/vector-icons/FontAwesome'
+import Feather from '@expo/vector-icons/Feather'
+import { useRouter } from 'expo-router'
 
 function CardUser({id, name, email, avatar, users, setUsers}) {
+
+  const router = useRouter()
 
   const handleDelete = async () => {
     const response = await fetch(`http://localhost:3333/profile/${id}`, {
@@ -16,6 +20,14 @@ function CardUser({id, name, email, avatar, users, setUsers}) {
     }
   }
 
+  const handleEdit = () => {
+    console.log("Editar usuário")
+    router.push({
+      pathname: '/edituser',
+      params: { id, name, email, avatar }
+    })
+  }
+
   return (
     <View style={styles.card}>
       <Image 
@@ -27,9 +39,14 @@ function CardUser({id, name, email, avatar, users, setUsers}) {
         <Text>{email}</Text>
       </View>
       <View>
+        <Pressable onPress={handleEdit}>
+          <Feather name="edit" size={24} color="black" />
+        </Pressable>
         <Pressable onPress={handleDelete}>
           <FontAwesome name="trash" size={24} color="black" />
         </Pressable>
+
+        
       </View>
     </View>
   )
