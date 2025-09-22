@@ -2,11 +2,12 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 import { useRouter } from 'expo-router'
 import { useState, useEffect } from 'react'
 import CardUser from '../../components/CardUser'
+import { useUserStore } from '../../stores/useUserStore'
 
 export default function Contact() {
 
     const router = useRouter()
-    const [users, setUsers] = useState([])
+    const {users, setUsers} = useUserStore()
     
     useEffect(() => {
         const listUsers = async () => {
@@ -33,8 +34,6 @@ export default function Contact() {
                     name={user.name}
                     email={user.email}
                     avatar={user.avatar}
-                    users={users}
-                    setUsers={setUsers}
                 />
             ))}
         </View>

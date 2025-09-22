@@ -1,10 +1,11 @@
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
 import { useRouter, useGlobalSearchParams } from 'expo-router'
 import { useState  } from 'react'
+import { useUserStore } from '../stores/useUserStore'
 
 export default function EditUser() {
 
-    // TODO: Terminar o envio dos dados para o backend
+    const {users, setUsers} = useUserStore()
 
     const router = useRouter()
     const {id, name: eName, email: eEmail, avatar: eAvatar} = useGlobalSearchParams()
@@ -14,7 +15,7 @@ export default function EditUser() {
     const [pass, setPass] = useState("")
     const [avatar, setAvatar] = useState(eAvatar)
 
-    const handleSignup = async () => {
+    const handleEdit = async () => {
 
         const profile = {
             name,
@@ -23,7 +24,7 @@ export default function EditUser() {
             avatar
         }
 
-        const response = await fetch("http://localhost:3333/profile", {
+        const response = await fetch(`http://localhost:3333/profile/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -32,10 +33,18 @@ export default function EditUser() {
         })
 
         if(response.ok){
-            console.log("Cadastrado com sucesso")
-            router.navigate('/login')
+            console.log("Perfil editado com sucesso!")
+            //atualizar lista de usuários na store
+            const updatedUsers = users.map(user => {
+                if(user.id === id){
+                    return {id, ...profile}
+                }
+                return user
+            })
+            setUsers(updatedUsers)
+            router.navigate('/contact')
         } else {
-            console.log("Erro ao cadastrar")
+            console.log("Erro ao Editar")
         }
     }
 
@@ -72,8 +81,8 @@ export default function EditUser() {
         </View>
             <View style={{ marginTop: 20 }}>
                 <Button 
-                    title='Cadastrar'
-                    onPress={handleSignup}
+                    title='Editar'
+                    onPress={handleEdit}
                 />
             </View>
         </View>

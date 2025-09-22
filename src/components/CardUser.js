@@ -3,10 +3,12 @@ import {Image} from 'expo-image'
 import FontAwesome from '@expo/vector-icons/FontAwesome'
 import Feather from '@expo/vector-icons/Feather'
 import { useRouter } from 'expo-router'
+import { useUserStore } from '../stores/useUserStore'
 
-function CardUser({id, name, email, avatar, users, setUsers}) {
+function CardUser({id, name, email, avatar}) {
 
   const router = useRouter()
+  const {users, setUsers} = useUserStore()
 
   const handleDelete = async () => {
     const response = await fetch(`http://localhost:3333/profile/${id}`, {
@@ -21,7 +23,6 @@ function CardUser({id, name, email, avatar, users, setUsers}) {
   }
 
   const handleEdit = () => {
-    console.log("Editar usuário")
     router.push({
       pathname: '/edituser',
       params: { id, name, email, avatar }
