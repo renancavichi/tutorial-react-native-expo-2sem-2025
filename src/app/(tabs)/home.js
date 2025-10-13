@@ -66,7 +66,7 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     backgroundColor: "#ffffffff"
   },
   content: {
