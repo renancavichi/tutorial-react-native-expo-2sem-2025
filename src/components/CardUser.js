@@ -30,30 +30,38 @@ function CardUser({id, name, email, avatar}) {
   }
 
   return (
-    <View style={styles.card}>
-      <Image 
-        style={styles.image}
-        source={avatar}
-      />
-      <View style={styles.info}>
-        <Text style={styles.h1}>{name}</Text>
-        <Text>{email}</Text>
-      </View>
-      <View>
-        <Pressable onPress={handleEdit}>
-          <Feather name="edit" size={24} color="black" />
-        </Pressable>
-        <Pressable onPress={handleDelete}>
-          <FontAwesome name="trash" size={24} color="black" />
-        </Pressable>
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <Image 
+          style={styles.image}
+          source={avatar}
+        />
+        <View style={styles.info}>
+          <Text style={styles.h1}>{name}</Text>
+          <Text>{email}</Text>
+        </View>
+        <View>
+          <Pressable onPress={handleEdit}>
+            <Feather name="edit" size={24} color="black" />
+          </Pressable>
+          <Pressable onPress={handleDelete}>
+            <FontAwesome name="trash" size={24} color="black" />
+          </Pressable>
 
-        
+          
+        </View>
       </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 15
+  },
   card: {
     width: '90%',
     padding: 10,
@@ -61,7 +69,6 @@ const styles = StyleSheet.create({
     gap: 15,
     backgroundColor: "#b8eef0ff",
     borderRadius: 10,
-    marginBottom: 15
   },
   image: {
     width: 50,
