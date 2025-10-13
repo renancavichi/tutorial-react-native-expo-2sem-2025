@@ -19,9 +19,12 @@
 - Passagem de state pai para filho (Prop Drilling)
 - Estados Globais com Zustand
 
-### Próximos Tópicos
+Parte 2
 
 - Scrollview x FlatList
+
+### Próximos Tópicos
+
 - AsyncStorage
 
 # Comandos Úteis

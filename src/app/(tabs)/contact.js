@@ -1,4 +1,4 @@
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, StyleSheet, FlatList } from 'react-native'
 import { useRouter } from 'expo-router'
 import { useState, useEffect } from 'react'
 import CardUser from '../../components/CardUser'
@@ -26,24 +26,23 @@ export default function Contact() {
 
     return (
         <View style={styles.container}>
-            <Text>Página de Contato</Text>
-            {users.map((user) => (
-                <CardUser 
-                    key={user.id}
-                    id={user.id}
-                    name={user.name}
-                    email={user.email}
-                    avatar={user.avatar}
-                />
-            ))}
+            <FlatList
+                data={users}
+                renderItem={({item}) => <CardUser 
+                    key={item.id}
+                    id={item.id}
+                    name={item.name}
+                    email={item.email}
+                    avatar={item.avatar}
+                />}
+                keyExtractor={item => item.id}
+            />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        flex: 1
     }
 })

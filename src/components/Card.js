@@ -4,21 +4,31 @@ import {Image} from 'expo-image'
 function Card({title, desc, img}) {
 
   return (
-    <View style={styles.card}>
-      <Image 
-        style={styles.image}
-        source={img}
-      />
-      <View style={styles.info}>
-        <Text style={styles.h1}>{title}</Text>
-        <Text>{desc}</Text>
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <Image 
+          style={styles.image}
+          source={img}
+        />
+        <View style={styles.info}>
+          <Text style={styles.h1}>{title}</Text>
+          <Text>{desc}</Text>
+        </View>
       </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: "#b62121ff",
+  },
   card: {
+    width: '100%',
     padding: 10,
     flexDirection: 'row',
     gap: 15,
