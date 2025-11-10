@@ -12,8 +12,8 @@ export default function Profile() {
 
     const handleLogout = async () => {
         await AsyncStorage.removeItem('userLogged')
-        logout()
         router.replace('/login')
+        logout()
     }
 
     return (
@@ -22,8 +22,8 @@ export default function Profile() {
                 source={profile?.avatar || 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'} 
                 style={{width: 100, height: 100, borderRadius: 50, marginBottom: 20}} 
             />
-            <Text>{profile.name}</Text>
-            <Text>{profile.email}</Text>
+            <Text>{profile?.name}</Text>
+            <Text>{profile?.email}</Text>
             
             <Button 
                 title='Logout'
