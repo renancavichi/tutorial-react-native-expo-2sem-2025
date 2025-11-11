@@ -9,7 +9,6 @@ export default function Profile() {
     const router = useRouter()
     const {profile, logout} = useAuthStore()
 
-
     const handleLogout = async () => {
         await AsyncStorage.removeItem('userLogged')
         router.replace('/login')

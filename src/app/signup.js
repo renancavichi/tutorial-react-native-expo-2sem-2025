@@ -59,6 +59,7 @@ export default function Signup() {
                 style={styles.input}
                 value={pass}
                 onChangeText={setPass}
+                secureTextEntry
             />
             <Text style={styles.label}>Avatar:</Text>
             <TextInput 
