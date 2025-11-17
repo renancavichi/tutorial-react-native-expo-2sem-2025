@@ -18,10 +18,9 @@
 - useEffect
 - Passagem de state pai para filho (Prop Drilling)
 - Estados Globais com Zustand
-
-Parte 2
-
 - Scrollview x FlatList
+- AsyncStorage
+- Axios para requisições autenticadas na api
 
 ### Próximos Tópicos
 
