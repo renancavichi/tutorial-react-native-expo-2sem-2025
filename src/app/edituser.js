@@ -1,21 +1,18 @@
-import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
+import { View, Text, Button, StyleSheet, TextInput, Alert} from 'react-native'
 import { useRouter, useGlobalSearchParams } from 'expo-router'
 import { useState  } from 'react'
 import { useUserStore } from '../stores/useUserStore'
-import { useAuthStore } from '../stores/useAuthStore'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { api } from '../api/api'
 
 export default function EditUser() {
 
     const {users, setUsers} = useUserStore()
-    const { token, logout } = useAuthStore()
 
     const router = useRouter()
     const {id, name: eName, email: eEmail, avatar: eAvatar} = useGlobalSearchParams()
 
     const [name, setName] = useState(eName)
     const [email, setEmail] = useState(eEmail)
-    const [pass, setPass] = useState("")
     const [avatar, setAvatar] = useState(eAvatar)
 
     const handleEdit = async () => {
@@ -24,37 +21,22 @@ export default function EditUser() {
             email,
             avatar
         }
-
-        const response = await fetch(`http://localhost:3333/profile/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}asddf`
-            },
-            body: JSON.stringify(profile),
-        })
-
-        if(response.ok){
-            console.log("Perfil editado com sucesso!")
-            //atualizar lista de usuários na store
-            const updatedUsers = users.map(user => {
-                if(user.id === id){
-                    return {id, ...profile}
-                }
-                return user
-            })
-            setUsers(updatedUsers)
-            router.navigate('/contact')
-        } else {
-            const data = await response.json()
-            if(response.status === 401 && data?.errorCode === 'TOKEN_INVALID'){
-                console.log("Token inválido ou expirado")
-                await AsyncStorage.removeItem('userLogged')
-                router.replace('/login')
-                logout()
+            const response = await api.put(`/profile/${id}`, profile)
+            if(response.status === 200){
+                console.log("Perfil editado com sucesso!")
+                //atualizar lista de usuários na store
+                const updatedUsers = users.map(user => {
+                    if(user.id === id){
+                        return {id, ...profile}
+                    }
+                    return user
+                })
+                setUsers(updatedUsers)
+                router.navigate('/contact')
+            } else {
+                console.log("Erro ao Editar: ", response?.data?.message || "Erro desconhecido")
+                Alert.alert("Erro", response?.data?.message || "Não foi possível editar o perfil.")
             }
-            console.log("Erro ao Editar: ", data?.message || "Erro desconhecido")
-        }
     }
 
     return (
