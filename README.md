@@ -17,14 +17,27 @@
 - useState
 - useEffect
 - Passagem de state pai para filho (Prop Drilling)
+
+Avaliação 2: 08/12
+
 - Estados Globais com Zustand
+    - O que é Zustand?
+    - Que posso criar no Store?
+    - O que acontece quando algum estado do Zustand é alterado?
 - Scrollview x FlatList
+    - Para que servem?
+    - Qual a diferença e quando usar cada um?
 - AsyncStorage
+    - Para que serve o AsyncStorage.
+        Persistir (ou salvar) dados no aparelho (mobile)
+        Base de dados do tipo Chave - Valor
+    - Posso salvar qualquer tipo de dados no AsyncStorage?
+    - Async (Assíncrono)
 - Axios para requisições autenticadas na api
+    - Para que ele server?
+        Enviar requisições http (Chamadas de API)
+    - Quais as vantagens em relação ao fetch?
 
-### Próximos Tópicos
-
-- AsyncStorage
 
 # Comandos Úteis
 
