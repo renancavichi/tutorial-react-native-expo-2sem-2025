@@ -22,22 +22,21 @@ Avaliação 2: 08/12
 
 - Estados Globais com Zustand
     - O que é Zustand?
-    - Que posso criar no Store?
+    - O que posso criar no Store?
     - O que acontece quando algum estado do Zustand é alterado?
 - Scrollview x FlatList
     - Para que servem?
     - Qual a diferença e quando usar cada um?
 - AsyncStorage
-    - Para que serve o AsyncStorage.
+    - Para que serve o AsyncStorage?
         Persistir (ou salvar) dados no aparelho (mobile)
         Base de dados do tipo Chave - Valor
     - Posso salvar qualquer tipo de dados no AsyncStorage?
     - Async (Assíncrono)
-- Axios para requisições autenticadas na api
+- Axios
     - Para que ele server?
         Enviar requisições http (Chamadas de API)
     - Quais as vantagens em relação ao fetch?
-
 
 # Comandos Úteis
 
